@@ -1,4 +1,33 @@
 ﻿@page
 @model MyApp.Namespace.RazorModel
 @{
+    DateTime date = DateTime.Now;
+    DateTime date2 = new DateTime(date.Year, date.Month, date.Day);
+    List<string> courses = ["DT057G, Webbutveckling I", "DT084G, Introduktion till programmering i JavaScript", "DT200G, Grafisk teknik för webb", "DT068G, Webbanvändbarhet", "DT093G Webbutveckling II", "DT003G, Databaser", "DT173G, Webbutveckling III", "DT193G, Fullstack-utveckling med ramverk", "DT071G, Programmering i C#.NET"];
+
+
 }
+
+<div class="text-start">
+    <h1 class="fs-2 mb-3">Razor</h1>
+
+    <h2 class="fs-5 mb-3">Information</h2>
+
+    <p><strong>Datum/klockslag: </strong> @date</p>
+
+    @if (date2.DayOfWeek == DayOfWeek.Monday)
+    {
+        <p>Idag är det måndag!</p>
+    } else {
+        <p>Idag är det inte måndag!</p>
+    }
+
+    <p><strong>Kurser jag har läst</strong></p>
+    <ul>
+        @foreach (string course in courses){
+            <li>@course</li>
+        }
+    </ul>
+
+
+</div>
